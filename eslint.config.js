@@ -28,7 +28,7 @@ export default [
     },
   },
   {
-    files: ['**/*.test.{js,jsx}', 'src/test/**', 'e2e/**'],
+    files: ['**/*.test.{js,jsx}', 'src/test/**', 'e2e/**', 'playwright.config.js'],
     languageOptions: {
       globals: { ...globals.node },
     },
