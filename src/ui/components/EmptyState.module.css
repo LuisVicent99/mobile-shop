@@ -1,0 +1,9 @@
+.empty {
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.message {
+  margin: 0;
+  color: var(--color-text-muted);
+}

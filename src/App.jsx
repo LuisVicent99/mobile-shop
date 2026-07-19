@@ -1,5 +1,15 @@
+import { BrowserRouter } from 'react-router-dom';
+import { CartProvider } from './application/CartProvider.jsx';
+import { AppRouter } from './ui/router/AppRouter.jsx';
+
 function App() {
-  return <h1>Mobile Shop</h1>;
+  return (
+    <BrowserRouter>
+      <CartProvider>
+        <AppRouter />
+      </CartProvider>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -64,3 +64,16 @@ a {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
 }
+
+/* Accessible-only text: visible to screen readers, removed from layout. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
