@@ -1,9 +1,6 @@
-// Pure mappers that normalize the wire format into the shapes the app
-// consumes. The API has quirks the rest of the code must never see:
-// misspelled fields (`dimentions`, `secondaryCmera`), values that arrive
-// either as a string or an array, and empty strings for unknown data.
-// Unknown/empty values are always normalized to `null` so the UI can
-// render a fallback without ever printing `undefined` or `NaN`.
+// The API misspells `dimentions` and `secondaryCmera`, mixes string/array
+// values and sends empty strings for unknown data; everything is normalized
+// here (empty → null) so the rest of the app never sees those quirks.
 
 function toText(value) {
   if (Array.isArray(value)) value = value.filter(Boolean).join(', ');
@@ -21,7 +18,6 @@ function toPrice(value) {
 function toWeight(value) {
   const text = toText(value);
   if (!text) return null;
-  // The API sends bare grams ("260"); values that already carry units pass through.
   return /^\d+(\.\d+)?$/.test(text) ? `${text} g` : text;
 }
 

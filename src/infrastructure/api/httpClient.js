@@ -1,11 +1,6 @@
 import { API_BASE_URL } from './config.js';
 import { ApiError } from './ApiError.js';
 
-/**
- * Minimal fetch wrapper: resolves with parsed JSON or rejects with an
- * ApiError for every failure mode (HTTP error status, network failure,
- * invalid JSON body).
- */
 export async function request(path, options = {}) {
   let response;
   try {

@@ -3,11 +3,6 @@ import { CartContext } from './cartContext.js';
 import { postCart } from '../infrastructure/api/productApi.js';
 import { isValidSelection } from '../domain/services/cartSelection.js';
 
-/**
- * Cart use case: exposes the persisted counter plus the "add to cart"
- * action with the request lifecycle the button needs
- * (`idle | loading | success | error`).
- */
 export function useCart() {
   const context = useContext(CartContext);
   if (!context) {

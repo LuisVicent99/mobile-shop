@@ -2,12 +2,6 @@ import { useCallback, useEffect, useState } from 'react';
 import { getProducts } from '../infrastructure/api/productApi.js';
 import { mapProductListItem } from '../domain/models/product.js';
 
-/**
- * Loads the product list through the cached repository and exposes the
- * screen states the PLP needs. `loading` is derived: while there is no
- * result yet the hook is loading. `retry` clears the result and bumps a
- * version to re-run the effect after a failure.
- */
 export function useProducts() {
   const [result, setResult] = useState(null);
   const [version, setVersion] = useState(0);

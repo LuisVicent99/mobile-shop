@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import styles from './ProductImage.module.css';
 
-/**
- * Product photo with a graceful fallback: when there is no URL or the
- * image fails to load, a placeholder with the same footprint is shown so
- * the layout never breaks.
- */
 export function ProductImage({ src, alt }) {
   const [failed, setFailed] = useState(false);
 

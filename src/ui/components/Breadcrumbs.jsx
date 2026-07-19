@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Breadcrumbs.module.css';
 
-/**
- * items: [{ label, to? }] — the last item is the current page. Items with
- * a `to` render as links (Home stays navigable even on the list view).
- */
 export function Breadcrumbs({ items }) {
   return (
     <nav aria-label="Ruta de navegación">

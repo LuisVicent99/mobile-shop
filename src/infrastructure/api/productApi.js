@@ -2,11 +2,6 @@ import { request } from './httpClient.js';
 import * as cache from '../cache/cache.js';
 import { PRODUCTS_KEY, productDetailKey } from '../cache/cache.js';
 
-/**
- * Repository over the three API endpoints. GET responses are cached raw
- * (as returned by the wire) so domain mappers can evolve without ever
- * invalidating stored entries; while an entry is fresh no request is made.
- */
 export async function getProducts() {
   const cached = cache.get(PRODUCTS_KEY);
   if (cached) return cached;

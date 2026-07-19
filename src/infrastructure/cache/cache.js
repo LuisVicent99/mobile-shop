@@ -1,4 +1,4 @@
-// Single source of truth for the cache expiry policy required by the spec (1 hour).
+// Single source of truth for the cache TTL (1 hour).
 export const CACHE_TTL_MS = 3_600_000;
 
 export function productDetailKey(id) {
@@ -7,11 +7,7 @@ export function productDetailKey(id) {
 
 export const PRODUCTS_KEY = 'products';
 
-/**
- * Reads a cached value. Returns `null` on miss, expiry, corrupt JSON,
- * malformed entries or unavailable storage — callers only need to
- * distinguish "usable value" from "go to the network".
- */
+// Returns null on miss, expiry, corrupt JSON or unavailable storage.
 export function get(key) {
   let raw;
   try {
@@ -36,15 +32,10 @@ export function get(key) {
   return entry.value;
 }
 
-/**
- * Stores a value with the current timestamp. Failures (quota exceeded,
- * storage unavailable) are swallowed: a failed cache write only means
- * the next read will hit the network again.
- */
 export function set(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify({ value, timestamp: Date.now() }));
   } catch {
-    // Intentionally ignored: caching is best-effort.
+    // Best-effort: a failed write only means the next read hits the network.
   }
 }

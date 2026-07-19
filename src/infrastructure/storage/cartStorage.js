@@ -1,5 +1,4 @@
-// Cart count persistence. Deliberately separate from the TTL cache:
-// the counter must survive indefinitely, it never expires.
+// Separate from the TTL cache on purpose: the counter never expires.
 const CART_COUNT_KEY = 'cartCount';
 
 export function getCount() {
