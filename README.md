@@ -24,8 +24,8 @@ SPA en React para explorar y comprar dispositivos móviles. Consume la API `http
 npm install
 
 npm run start      # entorno de desarrollo (Vite dev server)
-npm run build      # build de producción
-npm run preview    # sirve el build de producción localmente
+npm run build      # build de desarrollo
+npm run preview    # sirve el build localmente
 npm run test       # todos los tests: unitarios (Vitest) + e2e (Playwright)
 npm run test:unit  # solo tests unitarios
 npm run test:e2e   # solo tests end-to-end
